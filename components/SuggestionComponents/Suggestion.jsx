@@ -4,7 +4,7 @@ const Suggestion = ({ name, email, imgURL }) => {
     return (
         <li className="px-3 py-2 flex items-center cursor-pointer hover:bg-neutral-300/50">
             <img
-                className="w-[3rem] h-full rounded-[50%]"
+                className="w-10 h-10 rounded-[50%]"
                 src={imgURL}
                 alt="profile-photo"
             />
