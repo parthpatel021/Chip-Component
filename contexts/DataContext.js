@@ -5,6 +5,8 @@ import data from '@/public/data';
 const initialData = {
     chipData : [],
     mainData: data,
+    keyString: '',
+    selectedChip: -1,
 }
 
 const DataContext = createContext();
