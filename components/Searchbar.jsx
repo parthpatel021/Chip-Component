@@ -17,6 +17,16 @@ const Searchbar = () => {
         });
     }
 
+    const addToChip = (idx) => {
+        setData({
+            chipData: [...data.chipData, data.mainData[idx]],
+            mainData: data.mainData.filter((d, index) => index != idx),
+            keyString: '',
+            selectedChip: -1,
+            selectedMainData: 0,
+        });
+    }
+
     // handling closing of suggestion
     useEffect(() => {
         const handleOutsideClick = (e) => {
@@ -39,6 +49,31 @@ const Searchbar = () => {
     }
 
     const handleKeyDown = event => {
+        // console.log('Caret at: ', event.target.selectionStart);
+        // console.log(event.key); // Enter
+
+        if(event.key === 'Enter'){
+            addToChip(data.selectedMainData);
+        }
+
+        // Changing selection with up and down key in suggestion list
+        if(event.key === 'ArrowDown' || event.key === 'ArrowUp'){
+            let idx;
+            if(event.key === 'ArrowDown'){ 
+                idx = (data.selectedMainData + 1)%(data.mainData.length);
+            } else {
+                idx = data.selectedMainData - 1;
+                if(idx < 0){
+                    idx = data.mainData.length-1;
+                }
+            }
+
+            setData({
+                ...data,
+                selectedMainData: idx
+            });
+        }
+
         if (event.key === 'Backspace' && data.keyString === '') {
             if (data.selectedChip !== -1) {
                 console.log('Backspace');
@@ -73,7 +108,7 @@ const Searchbar = () => {
                     value={data.keyString}
                     onKeyDown={handleKeyDown}
                 />
-                {showSuggestion && <SearchSuggestion />}
+                {showSuggestion && <SearchSuggestion addToChip={addToChip} />}
             </div>
         </div>
     );

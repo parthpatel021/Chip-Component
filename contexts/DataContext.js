@@ -7,6 +7,7 @@ const initialData = {
     mainData: data,
     keyString: '',
     selectedChip: -1,
+    selectedMainData: 0,
 }
 
 const DataContext = createContext();
