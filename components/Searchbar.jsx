@@ -7,6 +7,7 @@ const Searchbar = () => {
     const { data, setData } = useContext(DataContext);
     const [showSuggestion, setShowSuggestion] = useState(false);
     const newRef = useRef(null);
+    const inputRef = useRef(null);
 
     const removeChip = (idx) => {
         setData({
@@ -25,6 +26,7 @@ const Searchbar = () => {
             selectedChip: -1,
             selectedMainData: 0,
         });
+        inputRef.current.focus();
     }
 
     // handling closing of suggestion
@@ -53,7 +55,7 @@ const Searchbar = () => {
         // console.log(event.key); // Enter
 
         if(event.key === 'Enter'){
-            addToChip(data.selectedMainData);
+                addToChip(data.selectedMainData);
         }
 
         // Changing selection with up and down key in suggestion list
@@ -107,6 +109,7 @@ const Searchbar = () => {
                     onChange={handleInputChnage}
                     value={data.keyString}
                     onKeyDown={handleKeyDown}
+                    ref={inputRef}
                 />
                 {showSuggestion && <SearchSuggestion addToChip={addToChip} />}
             </div>
