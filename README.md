@@ -1,40 +1,81 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next.js User Search Chip Component
 
-## Getting Started
+This project is a user search chip component built using Next.js. It allows users to search for other users and add them as chips in a search bar from a suggestion list.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Users can search for other users.
+- Suggestions are displayed based on the search query.
+- Selected users can be added as chips in the search bar.
+- Chips can be removed by clicking on them or using the backspace key.
+- Navigation through the suggestion list using arrow keys.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technology Used
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+- Next.js
+- React.js
+- TailwindCSS
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Installation
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+To use this component in your Next.js project, follow these steps:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Clone the repository:
 
-## Learn More
+    ```bash
+    git clone https://github.com/parthpatel021/Chip-Component.git
+    ```
 
-To learn more about Next.js, take a look at the following resources:
+2. Navigate to the project directory:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+    ```bash
+    cd Chip-Component
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+3. Install dependencies:
 
-## Deploy on Vercel
+    ```bash
+    npm install
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. Run the development server:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+    ```bash
+    npm run dev
+    ```
+
+5. Open [http://localhost:3000](http://localhost:3000) in your browser to view the component.
+
+## Usage
+
+To use the user search chip component in your Next.js project, follow these steps:
+
+1. Import the `Searchbar` component:
+
+    ```js
+    import Searchbar from '@/components/Searchbar';
+    ```
+
+2. Add the `Searchbar` component to your page:
+
+    ```js
+    <Searchbar />
+    ```
+
+## Components
+
+### `Searchbar`
+
+This component consists of a search bar where users can input their search queries and view suggestions. It also displays selected users as chips.
+
+### `Chip`
+
+This component represents a user chip displayed in the search bar. It includes the user's information and a button to remove the chip.
+
+### `SearchSuggestion`
+
+This component displays the suggestions based on the user's search query.
+
+## Context
+
+This project utilizes React Context API to manage the state of the user search and selected chips.
